@@ -19,7 +19,14 @@ import os
 from groq import Groq
 
 _MODEL = "openai/gpt-oss-120b"
-_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+_client: Groq | None = None
+
+
+def _get_client() -> Groq:
+    global _client
+    if _client is None:
+        _client = Groq(api_key=os.environ["GROQ_API_KEY"])
+    return _client
 
 
 @dataclass
@@ -34,7 +41,7 @@ def detect_and_normalize(user_text: str) -> tuple[DetectedLanguage, str]:
     English for the Planner's tool-use loop, since a single well-prompted
     call is cheaper and more consistent than two round-trips that could
     disagree with each other about what language was detected."""
-    resp = _client.chat.completions.create(
+    resp = _get_client().chat.completions.create(
         model=_MODEL, max_tokens=500,
         messages=[
             {"role": "system", "content": (
@@ -64,7 +71,7 @@ def detect_and_normalize(user_text: str) -> tuple[DetectedLanguage, str]:
 def translate_response(english_text: str, target_language: DetectedLanguage) -> str:
     if target_language.code == "en":
         return english_text  # no-op — avoids a wasted API call and any risk of the model rephrasing an already-correct English answer
-    resp = _client.chat.completions.create(
+    resp = _get_client().chat.completions.create(
         model=_MODEL, max_tokens=1500,
         messages=[
             {"role": "system", "content": (

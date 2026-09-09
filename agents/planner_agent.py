@@ -30,7 +30,14 @@ from agents import weather_agent, ocean_analytics_agent, geo_risk_agent, route_a
 
 _MODEL = "openai/gpt-oss-120b"
 _MAX_TOOL_LOOP_ITERATIONS = 8  # hard ceiling — a well-formed query resolves in 1-4 tool calls; this guards against a runaway loop, not normal usage
-_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+_client: Groq | None = None
+
+
+def _get_client() -> Groq:
+    global _client
+    if _client is None:
+        _client = Groq(api_key=os.environ["GROQ_API_KEY"])
+    return _client
 
 _SYSTEM_PROMPT = (
     "You are the Planner agent for ORCA, a marine intelligence platform for "
@@ -96,7 +103,7 @@ def run_planner_turn(db: Session, english_question: str, conversation_history: l
         [{"role": "user", "content": english_question}]
 
     for _ in range(_MAX_TOOL_LOOP_ITERATIONS):
-        resp = _client.chat.completions.create(
+        resp = _get_client().chat.completions.create(
             model=_MODEL, max_tokens=1500, tools=tools, messages=messages,
         )
         msg = resp.choices[0].message

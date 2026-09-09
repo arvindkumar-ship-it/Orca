@@ -21,7 +21,14 @@ from groq import Groq
 from agents.base import AgentResult
 
 _MODEL = "openai/gpt-oss-120b"
-_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+_client: Groq | None = None
+
+
+def _get_client() -> Groq:
+    global _client
+    if _client is None:
+        _client = Groq(api_key=os.environ["GROQ_API_KEY"])
+    return _client
 
 
 @dataclass
@@ -41,12 +48,8 @@ def compile_response(user_question_en: str, agent_results: list[AgentResult]) ->
             if key in r.data:
                 visuals[key] = r.data[key]
 
-    # Ask Claude to phrase the accumulated evidence as one coherent answer —
-    # it is NOT allowed to introduce new facts, only phrase what's already
-    # in explanation/data; the prompt says so explicitly to keep this step
-    # a synthesis, not a second (uncontrolled) source of claims.
     evidence_block = "\n".join(f"- {line}" for line in all_explanation) or "(no specific evidence points were gathered)"
-    resp = _client.chat.completions.create(
+    resp = _get_client().chat.completions.create(
         model=_MODEL, max_tokens=800,
         messages=[
             {"role": "system", "content": (
