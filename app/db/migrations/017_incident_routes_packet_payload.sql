@@ -1,0 +1,1 @@
+ALTER TABLE incident_routes ADD COLUMN packet_payload jsonb;
