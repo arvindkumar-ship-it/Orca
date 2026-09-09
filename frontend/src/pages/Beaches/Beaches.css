@@ -1,0 +1,403 @@
+/* =========================================
+       RESET
+       ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #fff;
+    color: #000;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+       PAGE
+       ========================================= */
+
+.beaches-page {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #fff !important;
+    background-image: none !important;
+
+    padding-bottom: 80px;
+}
+
+
+/* =========================================
+       TOP BAR
+       ========================================= */
+
+.beaches-page>.breadcrumb-bar {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+.beaches-page>.breadcrumb-bar::before,
+.beaches-page>.breadcrumb-bar::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+}
+
+.beaches-page>.breadcrumb-bar>.breadcrumb {
+    position: fixed !important;
+    left: 7px !important;
+    top: 0 !important;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: max-content;
+    min-width: 0;
+    height: 30px;
+    box-sizing: border-box;
+
+    padding: 0 25px;
+
+    white-space: nowrap;
+
+    background: #FFFFFF;
+    border-radius: 18px;
+
+    box-shadow:
+        0 2px 3px rgba(0, 0, 0, 0.22),
+        0 1px 1px rgba(0, 0, 0, 0.08);
+
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    z-index: 10;
+}
+
+.breadcrumb-home,
+.breadcrumb-beaches,
+.breadcrumb-separator {
+    color: #2F7186;
+    text-decoration: none;
+}
+
+.breadcrumb-separator {
+    margin: 0 6px;
+}
+
+
+/* =========================================
+       PAGE TITLE
+       ========================================= */
+
+.page-title {
+    margin-top: 46px;
+
+    text-align: center;
+
+    color: #0D7385;
+
+    font-family: "Iosevka Charon Mono", monospace;
+    font-size: 65.77px;
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    word-wrap: break-word;
+}
+
+
+/* =========================================
+       BEACH GRID
+       ========================================= */
+
+.beach-grid {
+    width: min(1308px, calc(100% - 40px));
+
+    margin: 76px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 350px));
+
+    justify-content: space-between;
+
+    column-gap: 60px;
+    row-gap: 115px;
+}
+
+
+/* =========================================
+       BEACH CARD
+       ========================================= */
+
+.beach-card {
+    position: relative;
+
+    width: 350px;
+    height: 381px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    box-shadow:
+        0 4px 4px rgba(0, 0, 0, 0.25) inset;
+}
+
+
+/* =========================================
+       BEACH IMAGE
+       ========================================= */
+
+.beach-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 20px;
+}
+
+
+/* =========================================
+       NAME PANEL
+       ========================================= */
+
+.beach-name-panel {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 129px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
+
+    background: #fff;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 4px 4px rgba(0, 0, 0, 0.25);
+
+    z-index: 2;
+}
+
+
+/* =========================================
+       BEACH NAME
+       ========================================= */
+
+.beach-name {
+    width: 100%;
+
+    text-align: center;
+
+    color: rgba(0, 0, 0, 0.50);
+
+    font-family: "Iosevka Charon Mono", monospace;
+    font-size: 50px;
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    word-wrap: break-word;
+}
+
+
+/* =========================================
+       LONG NAMES
+       ========================================= */
+
+.beach-card.long-name .beach-name {
+    font-size: 42px;
+}
+
+.beach-card.extra-long-name .beach-name {
+    font-size: 36px;
+}
+
+
+/* =========================================
+       RESPONSIVE
+       ========================================= */
+
+@media (max-width: 1200px) {
+
+    .beach-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 350px));
+
+        justify-content: center;
+
+        column-gap: 70px;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .page-title {
+        margin-top: 40px;
+
+        font-size: 48px;
+    }
+
+    .beach-grid {
+        width: calc(100% - 30px);
+
+        grid-template-columns:
+            minmax(0, 350px);
+
+        justify-content: center;
+
+        margin-top: 60px;
+
+        row-gap: 55px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .breadcrumb-bar {
+        height: 0;
+        padding: 0;
+    }
+
+    .beaches-page>.breadcrumb-bar>.breadcrumb {
+        left: 7px !important;
+        top: 0 !important;
+        height: 30px !important;
+        padding: 0 18px !important;
+        font-size: 13px !important;
+    }
+
+    .breadcrumb-separator {
+        margin: 0 5px;
+    }
+
+    .page-title {
+        margin-top: 34px;
+
+        font-size: 34px;
+
+        padding: 0 10px;
+    }
+
+    .beach-grid {
+        width: calc(100% - 24px);
+
+        margin-top: 45px;
+
+        row-gap: 35px;
+    }
+
+    .beach-card {
+        width: 100%;
+        max-width: 350px;
+
+        height: 381px;
+    }
+
+    .beach-name {
+        font-size: 34px;
+    }
+
+    .beach-card.long-name .beach-name {
+        font-size: 30px;
+    }
+
+    .beach-card.extra-long-name .beach-name {
+        font-size: 27px;
+    }
+
+}
+
+.breadcrumb-home-link,
+.breadcrumb-beach-link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.breadcrumb-home-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.breadcrumb-home-link:focus-visible,
+.breadcrumb-beach-link:focus-visible,
+.beach-card:focus-visible {
+    outline: 2px solid #0D7385;
+    outline-offset: 3px;
+    border-radius: 20px;
+}
+
+.beach-card {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.beach-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 7px 9px rgba(0, 0, 0, 0.20),
+        0 4px 4px rgba(0, 0, 0, 0.25) inset;
+}
+
+.beach-card {
+    border: 0;
+    padding: 0;
+    width: 100%;
+    font: inherit;
+    text-align: left;
+}

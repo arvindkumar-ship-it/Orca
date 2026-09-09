@@ -1,0 +1,194 @@
+.otp-page {
+  min-height: 100svh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #CEE8E8 25%, #46B7B9 75%);
+}
+
+.otp-canvas {
+  position: relative;
+  width: min(100vw, 140.625svh);
+  aspect-ratio: 1440 / 1024;
+  overflow: hidden;
+  flex: 0 0 auto;
+  container-type: inline-size;
+}
+
+/* Figma: x=492, y=253 */
+.otp-title {
+  position: absolute;
+  left: 34.1666667%;
+  top: 24.70703125%;
+  margin: 0;
+  color: #015260;
+  font-family: "Inria Serif", Georgia, serif;
+  font-size: 3.4722222cqw; /* 50px */
+  font-weight: 700;
+  line-height: 1.08;
+  white-space: nowrap;
+}
+
+/* Figma: x=494, y=336 */
+.otp-description {
+  position: absolute;
+  left: 34.3055556%;
+  top: 32.8125%;
+  margin: 0;
+  color: #000000;
+  font-family: "Josefin Slab", Georgia, serif;
+  font-size: 1.7361111cqw; /* 25px */
+  font-weight: 400;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* Figma: x=651, y=367 */
+.otp-number {
+  position: absolute;
+  left: 45.2083333%;
+  top: 35.83984375%;
+  margin: 0;
+  color: #000000;
+  font-family: "Josefin Slab", Georgia, serif;
+  font-size: 1.7361111cqw; /* 25px */
+  font-weight: 400;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* Figma: x=420, y=472, six boxes of 80px with 24px gaps */
+.otp-inputs {
+  position: absolute;
+  left: 29.1666667%;
+  top: 46.09375%;
+  display: flex;
+  gap: 1.6666667cqw; /* 24px */
+}
+
+.otp-input {
+  width: 5.5555556cqw; /* 80px */
+  height: 5.5555556cqw; /* 80px */
+  padding: 0;
+  border: 0;
+  border-radius: 1.3888889cqw; /* 20px */
+  background: #0D7385;
+  color: #FFFFFF;
+  box-shadow: 0 0.2777778cqw 0.2777778cqw rgba(0, 0, 0, 0.25);
+  outline: none;
+  text-align: center;
+  font-family: "Josefin Slab", Georgia, serif;
+  font-size: 2.7777778cqw;
+  font-weight: 600;
+  line-height: 1;
+  caret-color: #FFFFFF;
+}
+
+.otp-input:focus {
+  box-shadow:
+    0 0.2777778cqw 0.2777778cqw rgba(0, 0, 0, 0.25),
+    0 0 0 0.1388889cqw #015260;
+}
+
+/* Figma: x=420, y=596, w=591, h=76 */
+.otp-continue {
+  position: absolute;
+  left: 29.1666667%;
+  top: 58.203125%;
+  width: 41.0416667cqw; /* 591px */
+  height: 5.2777778cqw; /* 76px */
+  padding: 0;
+  border: 0;
+  border-radius: 2.7777778cqw; /* 40px */
+  background: rgba(1, 82, 96, 0.30);
+  color: #FFFFFF;
+  box-shadow:
+    0 0.2777778cqw 0.2777778cqw rgba(0, 0, 0, 0.25),
+    inset 0 0.2777778cqw 0.2777778cqw rgba(0, 0, 0, 0.25);
+  font-family: "Josefin Slab", Georgia, serif;
+  font-size: 2.7777778cqw; /* 40px */
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.otp-continue:focus-visible {
+  outline: 0.1388889cqw solid #FFFFFF;
+  outline-offset: 0.1388889cqw;
+}
+
+/* Figma: x=551, y=716 */
+.otp-resend {
+  position: absolute;
+  left: 38.2638889%;
+  top: 69.921875%;
+  margin: 0;
+  color: #000000;
+  font-family: "Josefin Slab", Georgia, serif;
+  font-size: 1.7361111cqw; /* 25px */
+  font-weight: 400;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.otp-resend-strong {
+  font-weight: 700;
+}
+
+/*
+  Responsive behavior:
+  The entire 1440x1024 Figma composition scales as one canvas.
+  No element is re-positioned on tablet/mobile, so the visual
+  relationships remain identical to the supplied design.
+*/
+@media (max-width: 600px) {
+  .otp-page {
+    align-items: flex-start;
+  }
+
+  .otp-canvas {
+    width: 100vw;
+    margin-top: max(0px, calc((100svh - 71.1111vw) / 2));
+  }
+
+  .otp-description {
+    white-space: normal;
+    width: 42%;
+  }
+
+  .otp-resend {
+    white-space: normal;
+    width: 42%;
+  }
+}
+
+.otp-resend-strong {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #000000;
+  font-family: "Josefin Slab", Georgia, serif;
+  font-size: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+.otp-resend-strong:disabled {
+  cursor: wait;
+}
+
+.otp-error {
+  position: absolute;
+  left: 29.1666667%;
+  top: 78.5%;
+  width: 41.0416667cqw;
+  margin: 0;
+  color: #8b1e1e;
+  font-family: "Josefin Slab", Georgia, serif;
+  font-size: 1.25cqw;
+  font-weight: 400;
+  text-align: center;
+}

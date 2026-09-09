@@ -1,0 +1,2448 @@
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&family=Cabin:wght@400;700&family=Cormorant+Garamond:wght@700&family=Intel+One+Mono:ital,wght@0,300;1,300&family=Inter:wght@300;400&family=Iosevka+Charon:wght@300&family=Italianno&family=Istok+Web:wght@700&family=Holtwood+One+SC&display=swap");
+
+:root {
+  --teal: #0D7385;
+  --teal2: #026F82;
+  --dark: #015260;
+  --aqua: #46B7B9;
+  --pale: #D3F9F6;
+  --red: #EA4335;
+  --black: #000;
+  --white: #fff;
+  --soft: #ECEEEE;
+  --green1: #1FAF38;
+  --green2: #60D669;
+  --page: 1440px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #111;
+  overflow-x: hidden;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+/* =========================================================
+   NAVBAR — FIGMA STYLE
+   ========================================================= */
+
+/* =========================================================
+   NAVBAR — FINAL
+   ========================================================= */
+
+.nav {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 52px;
+
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 8px;
+
+  /* TRANSPARENT NAVBAR */
+  background: transparent;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  border-bottom: 1px solid rgba(70, 183, 185, 0.75);
+
+  /* Very subtle glass effect */
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+
+/* =========================================================
+   LEFT NAVIGATION
+   Home | Map | SOS | Beaches
+   ========================================================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  height: 100%;
+}
+
+
+/* =========================================================
+   HOME / MAP / BEACHES
+   NORMAL — NO BACKGROUND
+   ========================================================= */
+
+.nav-link {
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 12px;
+
+  border-radius: 17px;
+
+  color: #ffffff;
+
+  background: transparent;
+
+  box-shadow: none;
+
+  text-decoration: none;
+
+  font: 400 15px "Cormorant Garamond", serif;
+
+  white-space: nowrap;
+
+  transition: opacity 0.2s ease;
+}
+
+
+/* HOME MUST STAY NORMAL */
+
+.nav-link.active {
+  background: transparent;
+  box-shadow: none;
+}
+
+
+/* HOVER — NO BACKGROUND */
+
+.nav-link:hover {
+  background: transparent;
+  box-shadow: none;
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   SOS
+   ONLY COLORED NAV ITEM
+   ========================================================= */
+
+.nav-link.sos-nav {
+  min-width: 52px;
+
+  height: 34px;
+
+  padding: 0 14px;
+
+  background: #EA4335;
+
+  border-radius: 17px;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 3px 4px rgba(0, 0, 0, 0.25);
+
+  font-weight: 700;
+}
+
+.nav-link.sos-nav:hover {
+  background: #EA4335;
+
+  opacity: 1;
+
+  filter: brightness(0.95);
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+   Login | Search | SVG Button
+   ========================================================= */
+
+.nav-tools {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-left: auto;
+
+  height: 100%;
+}
+
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+.login {
+  width: 91px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  border-radius: 10px;
+
+  color: rgba(2, 111, 130, 0.75);
+
+  text-decoration: none;
+
+  font:
+    300 italic 18px "Iosevka Charon",
+    "Cormorant Garamond",
+    sans-serif;
+
+  transition: background 0.2s ease;
+}
+
+.login:hover {
+  background: #f5fafa;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search {
+  width: 207px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 0 10px;
+
+  border-radius: 10px;
+
+  background: #ECEEEE;
+
+  color: rgba(2, 111, 130, 0.65);
+
+  font:
+    300 italic 12px "Iosevka Charon",
+    sans-serif;
+
+  overflow: hidden;
+}
+
+.search-placeholder {
+  flex: 1;
+
+  text-align: right;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   SEARCH ICON
+   ========================================================= */
+
+.search-icon {
+  width: 17px;
+  height: 17px;
+
+  flex: none;
+
+  border:
+    1.5px solid var(--teal);
+
+  border-radius: 50%;
+
+  position: relative;
+}
+
+.search-icon::after {
+  content: "";
+
+  position: absolute;
+
+  width: 8px;
+  height: 1.5px;
+
+  background: var(--teal);
+
+  right: -6px;
+  bottom: -3px;
+
+  transform: rotate(45deg);
+
+  transform-origin: left center;
+}
+
+
+/* =========================================================
+   ROUND SVG BUTTON
+   ========================================================= */
+
+.nav-round-btn {
+  width: 38px;
+  height: 36px;
+
+  padding: 0;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.75);
+
+  border-radius: 18px;
+
+  background:
+    rgba(238, 250, 250, 0.82);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.nav-round-btn img {
+  width: 20px;
+  height: 20px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.nav-round-btn:hover {
+  transform: scale(1.05);
+
+  background:
+    rgba(255, 255, 255, 0.95);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .nav {
+    height: 50px;
+
+    padding: 0 7px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+
+    padding: 0 10px;
+  }
+
+  .login {
+    width: 82px;
+  }
+
+  .search {
+    width: 180px;
+  }
+
+  .nav-round-btn {
+    width: 35px;
+    height: 34px;
+  }
+
+  .nav-round-btn img {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .nav {
+    height: 50px;
+
+    padding: 0 6px;
+  }
+
+  .nav-links {
+    gap: 1px;
+  }
+
+  .nav-link {
+    height: 31px;
+
+    padding: 0 7px;
+
+    font-size: 13px;
+  }
+
+  .nav-link.sos-nav {
+    min-width: 45px;
+
+    padding: 0 9px;
+  }
+
+  .nav-tools {
+    gap: 5px;
+  }
+
+  .login {
+    width: 65px;
+    height: 31px;
+
+    font-size: 15px;
+  }
+
+  .search {
+    width: 125px;
+    height: 31px;
+
+    padding: 0 8px;
+
+    font-size: 10px;
+  }
+
+  .search-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .nav-round-btn {
+    width: 31px;
+    height: 31px;
+  }
+
+  .nav-round-btn img {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .nav {
+    height: 48px;
+  }
+
+  .nav-link {
+    padding: 0 5px;
+
+    font-size: 12px;
+  }
+
+  .nav-link.sos-nav {
+    min-width: 40px;
+
+    padding: 0 7px;
+  }
+
+  .login {
+    width: 58px;
+
+    font-size: 14px;
+  }
+
+  .search {
+    width: 105px;
+
+    font-size: 9px;
+  }
+
+  .nav-round-btn {
+    width: 29px;
+    height: 29px;
+  }
+
+  .nav-round-btn img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .nav {
+    height: 50px;
+
+    padding: 0 6px;
+  }
+
+  .nav-links {
+    gap: 1px;
+  }
+
+  .nav-link {
+    height: 31px;
+
+    padding: 0 7px;
+
+    font-size: 13px;
+  }
+
+  .nav-link.sos-nav {
+    min-width: 45px;
+
+    padding: 0 9px;
+  }
+
+  .nav-tools {
+    gap: 5px;
+  }
+
+  .login {
+    width: 65px;
+
+    height: 31px;
+
+    font-size: 15px;
+  }
+
+  .search {
+    width: 125px;
+
+    height: 31px;
+
+    padding: 0 8px;
+
+    font-size: 10px;
+  }
+
+  .search-icon {
+    width: 14px;
+
+    height: 14px;
+  }
+
+  .nav-round-btn {
+    width: 31px;
+
+    height: 31px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .nav {
+    height: 48px;
+  }
+
+  .nav-link {
+    padding: 0 5px;
+
+    font-size: 12px;
+  }
+
+  .nav-link.sos-nav {
+    min-width: 40px;
+
+    padding: 0 7px;
+  }
+
+  .login {
+    width: 58px;
+
+    font-size: 14px;
+  }
+
+  .search {
+    width: 105px;
+
+    font-size: 9px;
+  }
+
+  .nav-round-btn {
+    width: 29px;
+  }
+}
+
+.brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 82px;
+  color: var(--teal);
+  font: 700 96.06px/1 "Cormorant Garamond", serif;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 34px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font: 700 24.59px "Cormorant Garamond", serif;
+  padding: 6px 10px;
+  border-radius: 17px;
+}
+
+.nav-link.active {
+  background: rgba(13, 115, 133, 0.67);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.nav-tools {
+  margin-left: auto;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+
+.login {
+  height: 45px;
+  min-width: 139px;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  background: #fff;
+  color: rgba(2, 111, 130, 0.75);
+  font: 300 italic 26.57px "Iosevka Charon", sans-serif;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+}
+
+.search {
+  width: 316px;
+  height: 45px;
+  background: #ECEEEE;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 10px;
+  color: rgba(2, 111, 130, 0.75);
+  font: 300 italic 17.91px "Iosevka Charon", sans-serif;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--teal);
+  border-radius: 50%;
+  position: relative;
+  flex: none;
+}
+
+.search-icon::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 1.5px;
+  background: var(--teal);
+  right: -7px;
+  bottom: -4px;
+  transform: rotate(45deg);
+}
+
+.sos-pill {
+  position: absolute;
+  left: 173px;
+  top: 12px;
+  height: 34px;
+  width: 77px;
+  background: var(--red);
+  border-radius: 17px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font: 700 25px "Cormorant Garamond";
+  display: grid;
+  place-items: center;
+}
+
+/* =========================================
+   NAVIGATION POPUP MENU
+   ========================================= */
+
+.side-menu {
+  position: absolute;
+  top: 5px;
+  right: 14px;
+  width: 236px;
+  min-height: 474px;
+  padding: 38px 0 18px;
+
+  background: rgba(20, 112, 132, 0.78);
+  border-radius: 7px 0 0 7px;
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(12px);
+
+  pointer-events: none;
+
+  transition:
+    opacity .22s ease,
+    transform .22s ease,
+    visibility .22s ease;
+}
+
+
+/* OPEN STATE */
+
+.side-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+
+/* MENU ITEM */
+
+.side-menu-item {
+  width: 100%;
+  min-height: 44px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 22px;
+
+  color: #fff;
+  text-decoration: none;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  transition:
+    background .18s ease,
+    padding-left .18s ease;
+}
+
+
+/* ICON */
+
+.menu-item-icon {
+  width: 20px;
+  min-width: 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+
+  font-family: Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 300;
+}
+
+
+/* HOVER */
+
+.side-menu-item:hover {
+  background: rgba(255, 255, 255, 0.10);
+  padding-left: 26px;
+}
+
+
+/* SOS */
+
+.side-menu-item.sos-menu-item {
+  color: #fff;
+}
+
+.side-menu-item.sos-menu-item .menu-item-icon {
+  color: #fff;
+}
+
+
+/* MAKE MENU BUTTON ABOVE PANEL */
+
+.nav-round-btn {
+  position: relative;
+  z-index: 110;
+}
+
+/* =========================================================
+   TOP SECTION
+   The video starts behind the navbar and continues through
+   the hero until the DESTINATIONS heading.
+   ========================================================= */
+
+.coastal-top {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  min-height: 900px;
+}
+
+/* =========================================================
+   WAVES VIDEO
+   ---------------------------------------------------------
+   VIDEO FILE:
+   assets/waves_1080p_enhanced.mp4
+
+   The enhanced source is already processed for web display.
+   Keep opacity at 1 and do not blur it.
+   ========================================================= */
+
+.coastal-video {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 900px;
+
+  object-fit: cover;
+  object-position: center center;
+
+  /* Preserve the enhanced video's clarity */
+  opacity: .45;
+  /*backdrop-filter: blur(2px);
+
+  /* IMPORTANT:
+     Do NOT use filter: blur() here. */
+  filter: none;
+
+  transform: none;
+
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =========================================================
+   VIDEO OVERLAY
+   Very subtle Figma-inspired treatment.
+   Kept intentionally low so waves stay sharp and visible.
+   ========================================================= */
+
+.coastal-video-overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 900px;
+
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.015) 0%,
+      rgba(255, 255, 255, 0.015) 58%,
+      rgba(255, 255, 255, 0.035) 72%,
+      rgba(255, 255, 255, 0.10) 84%,
+      rgba(255, 255, 255, 0.32) 94%,
+      rgba(255, 255, 255, 0.88) 99%,
+      #fff 100%);
+
+  pointer-events: none;
+}
+
+/* Smooth transition from video into the white page */
+.coastal-top::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 150px;
+
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.08) 25%,
+      rgba(255, 255, 255, 0.30) 55%,
+      rgba(255, 255, 255, 0.72) 82%,
+      #fff 100%);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+  z-index: 2;
+  min-height: 820px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.08;
+  filter: blur(1px);
+  transform: scale(1.02);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.015);
+  pointer-events: none;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title {
+  color: var(--dark);
+  font: 300 clamp(40px, 4.33vw, 62.4px) / 1.05 "Iosevka Charon", monospace !important;
+  margin: 0;
+}
+
+.hero-title-link {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero-title-link:hover,
+.hero-title-link:focus-visible {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero-script {
+  color: var(--dark);
+  font: 400 clamp(56px, 5.22vw, 75.2px) "Italianno", cursive;
+  margin: 8px 0 0;
+}
+
+.hero-cta {
+  margin: 18px auto 0;
+  width: 318px;
+  height: 86px;
+  border-radius: 37px;
+  background: rgba(206, 232, 232, 0.42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  font: 400 25px Cabin, sans-serif;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-decoration: none;
+}
+
+/* =========================================================
+   DESTINATIONS
+   ========================================================= */
+
+.destinations {
+  position: relative;
+  z-index: 2;
+  padding: 50px 27px 0;
+  max-width: 1440px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  color: #000;
+  font-family: "Intel One Mono", monospace;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  margin: 0 0 40px;
+}
+
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 39px;
+}
+
+.dest-card {
+  height: 350px;
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.25);
+  background: #ddd;
+}
+
+.dest-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  display: block;
+}
+
+.dest-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.02),
+      rgba(0, 0, 0, 0.42));
+}
+
+.dest-name {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.1);
+  font-family: "Istok Web", sans-serif;
+  font-size: 62.4px;
+  font-weight: 700;
+  line-height: normal;
+  word-wrap: break-word;
+
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
+
+  text-shadow: none;
+  pointer-events: none;
+}
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.features {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 42px 0 110px;
+  overflow: hidden;
+  position: relative;
+}
+
+.features-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: features-trail-right-to-left 24s linear infinite;
+  will-change: transform;
+}
+
+.feature {
+  flex: 0 0 288px;
+  box-sizing: border-box;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.34);
+  font: 300 33.21px / 1.1 Inter, sans-serif;
+  padding: 0 20px;
+  position: relative;
+}
+
+.feature::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  height: 39px;
+  border-right: 1px solid rgba(0, 0, 0, 0.28);
+  transform: translateY(-50%);
+}
+
+@keyframes features-trail-right-to-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .features-track {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   EXPLORE / MAP
+   ========================================================= */
+
+.explore {
+  position: relative;
+  min-height: 1460px;
+  overflow: hidden;
+  padding-top: 0;
+}
+
+.explore-map-bg {
+  position: absolute;
+  left: 0;
+  top: 470px;
+  width: 100%;
+  height: 990px;
+  object-fit: cover;
+  opacity: 0.14;
+}
+
+.explore-heading {
+  position: relative;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.explore-heading .eyebrow {
+  font: 400 italic 66.43px "High Tower Text", serif;
+  color: rgba(0, 0, 0, 0.35);
+  margin: 0;
+}
+
+.explore-heading .mega {
+  font: 400 clamp(75px, 13vw, 187.64px) / 1.01 "Holtwood One SC", serif;
+  color: rgba(0, 0, 0, 0.20);
+  margin: 10px auto 0;
+  max-width: 1220px;
+}
+
+.heading-rule {
+  position: absolute;
+  top: 105px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+  width: 34%;
+  left: 0;
+}
+
+.heading-rule.right {
+  left: auto;
+  right: 0;
+}
+
+.map-shell {
+  position: relative;
+  margin: 55px auto 0;
+  width: min(964px, calc(100% - 40px));
+
+  background: rgba(217, 217, 217, 0.61);
+
+  border-radius: 30px;
+  box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.20);
+
+  /* VERY THIN FRAME */
+  padding: 8px;
+}
+
+.map-frame {
+  width: 100%;
+  height: 600px;
+
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.map-note {
+  text-align: center;
+  margin: 18px 0 0;
+  font: 400 14px Inter;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* =========================================================
+   EMERGENCY
+   ========================================================= */
+
+/* =========================================================
+   EMERGENCY BAR
+   White section immediately above footer
+   ========================================================= */
+
+.emergency {
+  height: 105px;
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 35px;
+  gap: 16px;
+
+  position: relative;
+  z-index: 5;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Is Emergency ? */
+
+.emergency-question {
+  font: 400 38.79px "Bakbak One", sans-serif;
+  color: #000000;
+  white-space: nowrap;
+}
+
+/* Red SOS button */
+
+.emergency-btn {
+  height: 66px;
+  width: 281px;
+
+  background: #EA4335;
+  border: 0;
+  border-radius: 20px;
+
+  color: #ffffff;
+
+  font: 400 38.79px "Bakbak One", sans-serif;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emergency-btn:hover {
+  filter: brightness(0.95);
+}
+
+/* =========================================================
+   WHATSAPP — RIGHT END OF EMERGENCY BAR
+   ========================================================= */
+
+.whatsapp-btn {
+  margin-left: auto;
+
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  /* green circle removed */
+  border: none;
+  box-shadow: none;
+
+  padding: 0;
+}
+
+.whatsapp-btn img {
+  width: 65px;
+  height: 65px;
+
+  object-fit: contain;
+}
+
+/* =============================================
+   FOOTER
+   ========================================================= */
+/* =========================================================
+   FOOTER — FINAL FIGMA VERSION
+   ========================================================= */
+
+.footer {
+  width: 100%;
+  min-height: 190px;
+  height: auto;
+
+  background: rgba(13, 115, 133, 0.67);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  /* Neeche wala background block karo */
+  isolation: isolate;
+  position: relative;
+  z-index: 10;
+
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr 1fr;
+  column-gap: 28px;
+  row-gap: 0;
+  padding: 12px 40px 20px;
+  align-items: start;
+}
+
+
+
+/* =========================================================
+   FOOTER BRAND
+   ========================================================= */
+
+.footer-brand {
+  color: var(--teal);
+
+  font: 700 58px / 1 "Cormorant Garamond", serif;
+
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.12);
+
+  margin: 5px 0 0;
+}
+
+.footer-desc {
+  color: #fff;
+
+  font: 400 17px / 1.3 Calibri, Arial, sans-serif;
+
+  max-width: 350px;
+
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+   ========================================================= */
+
+.footer-col {
+  text-align: left;
+}
+
+.footer-col h3 {
+  margin: 0 0 4px;
+
+  color: #fff;
+
+  font: 700 17px "Cabin", sans-serif;
+}
+
+.footer-col a {
+  display: block;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font: 400 14px / 1.5 "Cabin", sans-serif;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   FOLLOW US
+   ========================================================= */
+
+.footer-col:last-of-type {
+  text-align: left;
+}
+
+.footer-col:last-of-type a {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  margin-top: 2px;
+
+  font-size: 0;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+   ========================================================= */
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .footer {
+    height: auto;
+    min-height: 230px;
+
+    grid-template-columns: 1.5fr 1fr 1fr;
+
+    column-gap: 24px;
+    row-gap: 15px;
+
+    padding: 20px 30px 15px;
+  }
+
+  .footer-brand {
+    font-size: 58px;
+  }
+
+  .copyright {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    margin-top: 10px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .footer {
+    width: 100%;
+
+    height: auto;
+    min-height: 420px;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 24px;
+
+    padding: 30px 22px 20px;
+  }
+
+  .footer-brand {
+    font-size: 58px;
+
+    grid-column: 1 / -1;
+  }
+
+  .footer-desc {
+    font-size: 18px;
+  }
+
+  .footer-col h3 {
+    font-size: 19px;
+  }
+
+  .footer-col a {
+    font-size: 15px;
+  }
+
+  .copyright {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    margin-top: 10px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .footer {
+    width: 100%;
+
+    height: auto;
+    min-height: 520px;
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    padding: 25px 18px 20px;
+  }
+
+  .footer-brand {
+    font-size: 58px;
+
+    grid-column: 1;
+  }
+
+  .footer-desc {
+    font-size: 17px;
+  }
+
+  .footer-col h3 {
+    font-size: 18px;
+  }
+
+  .footer-col a {
+    font-size: 15px;
+  }
+
+  .copyright {
+    grid-column: 1;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    margin-top: 10px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .brand {
+    font-size: 74px;
+    top: 88px;
+  }
+
+  .search {
+    width: 230px;
+  }
+
+  .dest-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .features {
+    padding-top: 38px;
+    padding-bottom: 90px;
+  }
+
+  .features-track {
+    animation-duration: 20s;
+  }
+
+  .feature {
+    flex-basis: 260px;
+  }
+
+  .feature:nth-child(3)::after {
+    display: none;
+  }
+
+  .footer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-brand {
+    font-size: 72px;
+  }
+
+  .copyright {
+    grid-column: 1 / -1;
+  }
+
+  .map-shell {
+    padding: 80px 25px 120px;
+  }
+
+  .map-frame {
+    height: 560px;
+  }
+
+  /* Enhanced video remains clear on tablet */
+  .coastal-video,
+  .coastal-video-overlay {
+    height: 900px;
+  }
+
+  .coastal-video {
+    object-position: center center;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .nav {
+    height: 64px;
+    padding: 0 12px;
+  }
+
+  .nav-links {
+    gap: 2px;
+  }
+
+  .nav-link {
+    font-size: 19px;
+    padding: 7px 8px;
+  }
+
+  .nav-tools {
+    display: none;
+  }
+
+  .sos-pill {
+    left: auto;
+    right: 12px;
+    top: 15px;
+    width: 65px;
+    height: 32px;
+    font-size: 21px;
+  }
+
+  .brand {
+    font-size: 62px;
+    top: 95px;
+  }
+
+  /* Video extends from navbar through hero toward
+     the Destinations transition on mobile */
+  .coastal-top {
+    min-height: 780px;
+  }
+
+  .coastal-video,
+  .coastal-video-overlay {
+    height: 780px;
+  }
+
+  .coastal-video {
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hero {
+    min-height: 680px;
+  }
+
+  .hero-copy {
+    margin-top: 110px;
+  }
+
+  .hero-cta {
+    width: 280px;
+    height: 72px;
+  }
+
+  .destinations {
+    padding: 42px 16px 0;
+  }
+
+  .dest-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .dest-card {
+    height: 320px;
+  }
+
+  .dest-name {
+    font-size: 52px;
+  }
+
+  .features {
+    padding: 35px 0 70px;
+  }
+
+  .features-track {
+    animation-duration: 16s;
+  }
+
+  .feature {
+    flex-basis: 220px;
+    padding: 17px 12px;
+    font-size: 25px;
+  }
+
+  .feature::after {
+    height: 32px;
+  }
+
+  .explore {
+    min-height: 1050px;
+  }
+
+  .explore-heading .eyebrow {
+    font-size: 42px;
+  }
+
+  .explore-heading .mega {
+    font-size: 72px;
+    line-height: 1.05;
+  }
+
+  .heading-rule {
+    display: none;
+  }
+
+  .map-shell {
+    margin-top: 50px;
+    border-radius: 28px;
+    width: calc(100% - 24px);
+    padding: 22px 14px 35px;
+  }
+
+  .map-frame {
+    height: 430px;
+    border-radius: 25px;
+  }
+
+  .emergency {
+    height: auto;
+    min-height: 150px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 22px 25px;
+  }
+
+  .emergency-question {
+    font-size: 30px;
+  }
+
+  .emergency-btn {
+    width: 230px;
+    height: 58px;
+    font-size: 31px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 30px 22px;
+  }
+
+  .footer-brand {
+    font-size: 65px;
+    grid-column: 1 / -1;
+  }
+
+  .footer-desc {
+    font-size: 21px;
+  }
+
+  .footer-col h3 {
+    font-size: 21px;
+  }
+
+  .footer-col a {
+    font-size: 17px;
+  }
+
+  .copyright {
+    grid-column: 1 / -1;
+    font-size: 15px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .brand {
+    font-size: 52px;
+    top: 92px;
+  }
+
+  .hero {
+    min-height: 650px;
+  }
+
+  .hero-copy {
+    margin-top: 90px;
+    padding: 0 16px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-script {
+    font-size: 52px;
+  }
+
+  .hero-cta {
+    width: 250px;
+    height: 66px;
+    font-size: 21px;
+  }
+
+  .coastal-top {
+    min-height: 750px;
+  }
+
+  .coastal-video,
+  .coastal-video-overlay {
+    height: 750px;
+  }
+
+  .destinations {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .section-title {
+    font-size: 34px;
+    margin-bottom: 30px;
+  }
+
+  .dest-card {
+    height: 280px;
+    border-radius: 24px;
+  }
+
+  .dest-name {
+    font-size: 44px;
+  }
+
+  .features {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .explore-heading .eyebrow {
+    font-size: 36px;
+  }
+
+  .explore-heading .mega {
+    font-size: 58px;
+  }
+
+  .map-shell {
+    width: calc(100% - 20px);
+    padding: 16px 10px 28px;
+  }
+
+  .map-frame {
+    height: 360px;
+    border-radius: 20px;
+  }
+
+  .emergency {
+    padding: 20px;
+  }
+
+  .emergency-question {
+    font-size: 27px;
+  }
+
+  .emergency-btn {
+    width: 210px;
+    font-size: 28px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand {
+    font-size: 58px;
+  }
+
+  .copyright {
+    grid-column: 1;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY / PERFORMANCE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .coastal-video {
+    display: none;
+  }
+
+  .coastal-top {
+    background: #D3F9F6;
+  }
+}
+
+/* Login was converted to the authenticated Logout action without changing
+   the supplied landing-page geometry or visual treatment. */
+button.login {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: center;
+}
+
+
+/* Figma-preserving interactive Plan Your Trip control. */
+.hero-trip-link {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 405px;
+  min-height: 92px;
+  padding: 10px 34px 14px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--dark);
+  font-family: "Italianno", cursive;
+  font-weight: 400;
+  cursor: pointer;
+
+  /* Frosted glass effect from the supplied reference. */
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.12),
+    0 8px 22px rgba(0, 0, 0, 0.08);
+
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.18);
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.hero-trip-link:hover {
+  background: rgba(255, 255, 255, 0.30);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.48),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.16),
+    0 10px 26px rgba(0, 0, 0, 0.10);
+}
+
+.hero-trip-link:active {
+  transform: translateY(1px);
+}
+
+.hero-trip-link:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  .hero-trip-link {
+    min-width: min(405px, 88vw);
+    min-height: 76px;
+    padding-inline: 24px;
+    border-radius: 8px 28px 36px 36px;
+  }
+}
+
+
+.map-note-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.map-note-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+.dest-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.dest-card:hover {
+  text-decoration: none;
+}
+
+
+/* Interactive navbar search — keeps the supplied search geometry while
+   adding type-ahead navigation. */
+.search {
+  position: relative;
+  overflow: visible;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #026F82;
+  text-align: right;
+  font: 300 italic 12px "Iosevka Charon", sans-serif;
+}
+
+.search-input::placeholder {
+  color: rgba(2, 111, 130, 0.65);
+  opacity: 1;
+}
+
+.search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search:focus-within {
+  box-shadow: 0 0 0 1px rgba(2, 111, 130, 0.25);
+}
+
+.search-results {
+  position: absolute;
+  z-index: 100;
+  top: calc(100% + 7px);
+  right: 0;
+  width: 207px;
+  max-height: 260px;
+  overflow-y: auto;
+  padding: 6px;
+  border: 1px solid rgba(13, 115, 133, 0.18);
+  border-radius: 10px;
+  background: rgba(250, 252, 252, 0.98);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+}
+
+.search-result,
+.search-no-result {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border-radius: 7px;
+  color: #0D7385;
+  text-decoration: none;
+  font: 400 13px "Cabin", sans-serif;
+  text-align: left;
+}
+
+.search-result:hover,
+.search-result:focus-visible {
+  background: rgba(13, 115, 133, 0.10);
+  outline: none;
+}
+
+.search-no-result {
+  color: rgba(13, 115, 133, 0.60);
+}
+
+@media (max-width: 700px) {
+  .search {
+    width: min(207px, 34vw);
+  }
+
+  .search-results {
+    width: min(207px, 56vw);
+  }
+}
+
+/* =========================================================
+   EMERGENCY BAR — TEXT STYLE UPDATE
+   Match the landing-page reference: plain black question +
+   teal SOS action text. Existing functionality is preserved.
+   ========================================================= */
+.emergency-question {
+  color: #000000;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.emergency-btn {
+  width: auto;
+  height: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: #3C7182;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.emergency-btn:hover {
+  filter: none;
+  background: transparent;
+  color: #3C7182;
+}
+
+@media (max-width: 760px) {
+
+  .emergency-question,
+  .emergency-btn {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .emergency-question,
+  .emergency-btn {
+    font-size: 22px;
+  }
+}
+
+/* =========================================================
+   FINAL TARGET OVERRIDES — TOP NAV + EMERGENCY SOS
+   ========================================================= */
+
+/* Top navigation: translucent pill group matching the supplied reference. */
+.nav {
+  background: rgba(72, 111, 124, 0.34);
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  border-bottom: 1px solid rgba(70, 183, 185, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.nav-links {
+  height: 28px;
+  gap: 0;
+  padding: 0 6px;
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.18);
+}
+
+.nav-link,
+.nav-link.active,
+.nav-link.sos-nav {
+  min-width: auto;
+  height: 26px;
+  padding: 0 9px;
+  border-radius: 13px;
+  background: transparent;
+  box-shadow: none;
+  color: #fff;
+  font: 700 15px/1 "Cormorant Garamond", serif;
+}
+
+.nav-link.sos-nav {
+  font-weight: 700;
+}
+
+.nav-link:hover,
+.nav-link.sos-nav:hover {
+  background: rgba(255, 255, 255, 0.10);
+  box-shadow: none;
+  opacity: 1;
+  filter: none;
+}
+
+.nav-tools {
+  gap: 8px;
+}
+
+.login {
+  width: 91px;
+  min-width: 91px;
+  height: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font: 400 15px/1 "Cormorant Garamond", serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.login:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.search {
+  width: 162px;
+  height: 25px;
+  padding: 0 9px;
+  gap: 7px;
+  border-radius: 14px;
+  background: rgba(226, 236, 239, 0.34);
+  color: rgba(255, 255, 255, 0.92);
+  font: 400 13px/1 "Cormorant Garamond", serif;
+  overflow: visible;
+}
+
+.search-input {
+  color: #fff;
+  font: 400 13px/1 "Cormorant Garamond", serif;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.search-icon {
+  width: 15px;
+  height: 15px;
+  border-color: rgba(2, 111, 130, 0.85);
+}
+
+.search-icon::after {
+  background: rgba(2, 111, 130, 0.85);
+  width: 7px;
+  right: -5px;
+  bottom: -3px;
+}
+
+.nav-round-btn {
+  width: 42px;
+  height: 25px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: rgba(238, 250, 250, 0.24);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.10);
+}
+
+.nav-round-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Emergency bar: plain text treatment, no red button box. */
+.emergency {
+  height: 105px;
+  padding: 0 35px;
+  gap: 16px;
+}
+
+.emergency-question,
+.emergency-btn {
+  font: 700 24px/1.2 Inter, Arial, sans-serif;
+}
+
+.emergency-question {
+  color: #000;
+}
+
+.emergency-btn {
+  width: auto;
+  height: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: #3C7182;
+  box-shadow: none;
+}
+
+.emergency-btn:hover {
+  filter: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+  .nav-links {
+    height: 27px;
+  }
+
+  .nav-link,
+  .nav-link.active,
+  .nav-link.sos-nav {
+    height: 25px;
+    padding-inline: 8px;
+    font-size: 14px;
+  }
+
+  .login {
+    width: 82px;
+    min-width: 82px;
+    height: 25px;
+    font-size: 14px;
+  }
+
+  .search {
+    width: 162px;
+    height: 25px;
+  }
+
+  .nav-round-btn {
+    width: 35px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav {
+    height: 50px;
+    padding: 0 6px;
+  }
+
+  .nav-links {
+    height: 27px;
+    padding-inline: 4px;
+  }
+
+  .nav-link,
+  .nav-link.active,
+  .nav-link.sos-nav {
+    height: 25px;
+    padding-inline: 7px;
+    font-size: 13px;
+  }
+
+  .nav-tools {
+    gap: 5px;
+  }
+
+  .login {
+    width: 65px;
+    min-width: 65px;
+    height: 25px;
+    font-size: 13px;
+  }
+
+  .search {
+    width: 125px;
+    height: 25px;
+    font-size: 11px;
+  }
+
+  .search-input {
+    font-size: 11px;
+  }
+
+  .nav-round-btn {
+    width: 31px;
+    height: 25px;
+  }
+
+  .emergency {
+    min-height: 120px;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    padding: 22px 20px;
+  }
+
+  .emergency-question,
+  .emergency-btn {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    padding-inline: 3px;
+  }
+
+  .nav-link,
+  .nav-link.active,
+  .nav-link.sos-nav {
+    padding-inline: 5px;
+    font-size: 12px;
+  }
+
+  .login {
+    width: 58px;
+    min-width: 58px;
+    font-size: 12px;
+  }
+
+  .search {
+    width: 105px;
+    font-size: 10px;
+  }
+
+  .search-input {
+    font-size: 10px;
+  }
+
+  .nav-round-btn {
+    width: 29px;
+  }
+
+  .emergency-question,
+  .emergency-btn {
+    font-size: 20px;
+  }
+}
+
+
+/* Final navbar outline — Figma specification */
+.nav {
+  outline: 1px solid #46B7B9;
+  outline-offset: -0.5px;
+}

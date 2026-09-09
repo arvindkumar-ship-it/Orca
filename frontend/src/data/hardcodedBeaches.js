@@ -1,0 +1,295 @@
+// Temporary frontend-only beach catalogue.
+//
+// The UI uses this data by default so beach screens are not blocked by the
+// backend database while the beach API endpoints are being tested separately.
+//
+// Set VITE_USE_BEACH_API=true to switch the same screens back to the real API.
+// Keep the object shape close to the backend response so the switch is cheap.
+
+export const HARD_CODED_BEACHES = [
+  {
+    id: "demo-baga-beach",
+    name: "Baga Beach",
+    state: "Goa",
+    district: "North Goa",
+    location: "Baga, Goa",
+    rating: 4.5,
+    review_count: 1284,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "safe",
+    current_risk_score: 0.18,
+    weather: {
+      temperature: 29,
+      condition: "Partly cloudy",
+      wind_speed: "14 km/h",
+      humidity: "72%",
+      visibility: "8 km",
+      uv_index: 7,
+    },
+    ocean: {
+      wave_height: "0.8 m",
+      tide: "Low",
+      water_quality: "Good",
+      wave_period: "8 s",
+      current_speed: "0.4 m/s",
+      sea_temperature: "27°C",
+    },
+    services: {
+      hospital: "2.1 km",
+      police_station: "1.4 km",
+      lifeguard: "On beach",
+      parking: "0.5 km",
+    },
+    description: "Popular North Goa beach with lifeguard coverage and public access.",
+    review_summary: "A lively beach with good access to safety services and facilities.",
+  },
+  {
+    id: "demo-calangute-beach",
+    name: "Calangute Beach",
+    state: "Goa",
+    district: "North Goa",
+    location: "Calangute, Goa",
+    rating: 4.3,
+    review_count: 963,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "caution",
+    current_risk_score: 0.42,
+    weather: { temperature: 29, condition: "Partly cloudy", wind_speed: "16 km/h", humidity: "74%", visibility: "8 km", uv_index: 7 },
+    ocean: { wave_height: "1.1 m", tide: "Rising", water_quality: "Good", wave_period: "7 s", current_speed: "0.6 m/s", sea_temperature: "27°C" },
+    services: { hospital: "2.8 km", police_station: "1.2 km", lifeguard: "On beach", parking: "0.7 km" },
+    description: "Large North Goa beach with strong public access and nearby services.",
+    review_summary: "Busy beach with plenty of services; follow current safety guidance.",
+  },
+  {
+    id: "demo-juhu-beach",
+    name: "Juhu Beach",
+    state: "Maharashtra",
+    district: "Mumbai Suburban",
+    location: "Juhu, Mumbai, Maharashtra",
+    rating: 4.1,
+    review_count: 742,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "safe",
+    current_risk_score: 0.22,
+    weather: { temperature: 28, condition: "Cloudy", wind_speed: "12 km/h", humidity: "78%", visibility: "7 km", uv_index: 5 },
+    ocean: { wave_height: "0.7 m", tide: "Low", water_quality: "Fair", wave_period: "8 s", current_speed: "0.3 m/s", sea_temperature: "26°C" },
+    services: { hospital: "1.8 km", police_station: "1.0 km", lifeguard: "On beach", parking: "0.4 km" },
+    description: "Iconic Mumbai beach with public access and nearby emergency services.",
+    review_summary: "Convenient urban beach with good access to services.",
+  },
+  {
+    id: "demo-dumas-beach",
+    name: "Dumas Beach",
+    state: "Gujarat",
+    district: "Surat",
+    location: "Dumas, Surat, Gujarat",
+    rating: 4.0,
+    review_count: 518,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "caution",
+    current_risk_score: 0.38,
+    weather: { temperature: 31, condition: "Clear", wind_speed: "17 km/h", humidity: "65%", visibility: "9 km", uv_index: 8 },
+    ocean: { wave_height: "0.9 m", tide: "Rising", water_quality: "Fair", wave_period: "7 s", current_speed: "0.5 m/s", sea_temperature: "28°C" },
+    services: { hospital: "4.0 km", police_station: "2.0 km", lifeguard: "On beach", parking: "0.6 km" },
+    description: "Popular Surat coastline destination with public access.",
+    review_summary: "Good for a short coastal visit; check conditions before entering the water.",
+  },
+  {
+    id: "demo-gokarna-beach",
+    name: "Gokarna Beach",
+    state: "Karnataka",
+    district: "Uttara Kannada",
+    location: "Gokarna, Karnataka",
+    rating: 4.4,
+    review_count: 689,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "safe",
+    current_risk_score: 0.2,
+    weather: { temperature: 27, condition: "Clear", wind_speed: "11 km/h", humidity: "70%", visibility: "9 km", uv_index: 7 },
+    ocean: { wave_height: "0.6 m", tide: "Low", water_quality: "Good", wave_period: "9 s", current_speed: "0.3 m/s", sea_temperature: "27°C" },
+    services: { hospital: "3.5 km", police_station: "1.7 km", lifeguard: "On beach", parking: "0.8 km" },
+    description: "Scenic Karnataka beach with a relatively calm coastal profile.",
+    review_summary: "Relaxed coastal destination with good conditions today.",
+  },
+  {
+    id: "demo-kovalam-beach",
+    name: "Kovalam Beach",
+    state: "Kerala",
+    district: "Thiruvananthapuram",
+    location: "Kovalam, Kerala",
+    rating: 4.5,
+    review_count: 824,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "safe",
+    current_risk_score: 0.19,
+    weather: { temperature: 28, condition: "Partly cloudy", wind_speed: "13 km/h", humidity: "76%", visibility: "8 km", uv_index: 7 },
+    ocean: { wave_height: "0.7 m", tide: "Low", water_quality: "Good", wave_period: "8 s", current_speed: "0.4 m/s", sea_temperature: "28°C" },
+    services: { hospital: "2.6 km", police_station: "1.3 km", lifeguard: "On beach", parking: "0.5 km" },
+    description: "Well-known Kerala beach with established visitor facilities.",
+    review_summary: "Good facilities and a calm-looking sea profile.",
+  },
+  {
+    id: "demo-marina-beach",
+    name: "Marina Beach",
+    state: "Tamil Nadu",
+    district: "Chennai",
+    location: "Marina Beach, Chennai, Tamil Nadu",
+    rating: 4.2,
+    review_count: 1102,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "caution",
+    current_risk_score: 0.44,
+    weather: { temperature: 30, condition: "Cloudy", wind_speed: "19 km/h", humidity: "73%", visibility: "7 km", uv_index: 7 },
+    ocean: { wave_height: "1.2 m", tide: "Rising", water_quality: "Fair", wave_period: "7 s", current_speed: "0.7 m/s", sea_temperature: "29°C" },
+    services: { hospital: "2.0 km", police_station: "1.1 km", lifeguard: "On beach", parking: "0.6 km" },
+    description: "Large Chennai coastline with extensive public access.",
+    review_summary: "Great for the promenade; take extra care around current water conditions.",
+  },
+  {
+    id: "demo-rushikonda-beach",
+    name: "Rushikonda Beach",
+    state: "Andhra Pradesh",
+    district: "Visakhapatnam",
+    location: "Rushikonda, Visakhapatnam, Andhra Pradesh",
+    rating: 4.4,
+    review_count: 603,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "safe",
+    current_risk_score: 0.24,
+    weather: { temperature: 29, condition: "Clear", wind_speed: "15 km/h", humidity: "69%", visibility: "9 km", uv_index: 8 },
+    ocean: { wave_height: "0.9 m", tide: "Low", water_quality: "Good", wave_period: "8 s", current_speed: "0.4 m/s", sea_temperature: "28°C" },
+    services: { hospital: "4.2 km", police_station: "2.2 km", lifeguard: "On beach", parking: "0.5 km" },
+    description: "Visakhapatnam beach with broad public access.",
+    review_summary: "A popular coastal spot with generally manageable conditions.",
+  },
+  {
+    id: "demo-puri-beach",
+    name: "Puri Beach",
+    state: "Odisha",
+    district: "Puri",
+    location: "Puri, Odisha",
+    rating: 4.3,
+    review_count: 917,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "safe",
+    current_risk_score: 0.25,
+    weather: { temperature: 29, condition: "Partly cloudy", wind_speed: "14 km/h", humidity: "75%", visibility: "8 km", uv_index: 7 },
+    ocean: { wave_height: "0.8 m", tide: "Low", water_quality: "Good", wave_period: "8 s", current_speed: "0.4 m/s", sea_temperature: "28°C" },
+    services: { hospital: "2.3 km", police_station: "1.0 km", lifeguard: "On beach", parking: "0.5 km" },
+    description: "Major Odisha beach with established visitor and emergency services.",
+    review_summary: "Good public access and a calm-looking coastal profile today.",
+  },
+  {
+    id: "demo-digha-beach",
+    name: "Digha Beach",
+    state: "West Bengal",
+    district: "Purba Medinipur",
+    location: "Digha, West Bengal",
+    rating: 4.1,
+    review_count: 566,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "caution",
+    current_risk_score: 0.35,
+    weather: { temperature: 30, condition: "Cloudy", wind_speed: "18 km/h", humidity: "77%", visibility: "7 km", uv_index: 6 },
+    ocean: { wave_height: "1.0 m", tide: "Rising", water_quality: "Fair", wave_period: "7 s", current_speed: "0.5 m/s", sea_temperature: "28°C" },
+    services: { hospital: "2.9 km", police_station: "1.6 km", lifeguard: "On beach", parking: "0.7 km" },
+    description: "Popular West Bengal seaside destination.",
+    review_summary: "A busy beach; check the latest safety conditions before swimming.",
+  },
+  {
+    id: "demo-kavaratti-beach",
+    name: "Kavaratti Beach",
+    state: "Lakshadweep",
+    district: "Kavaratti",
+    location: "Kavaratti, Lakshadweep",
+    rating: 4.7,
+    review_count: 301,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "safe",
+    current_risk_score: 0.16,
+    weather: { temperature: 28, condition: "Clear", wind_speed: "12 km/h", humidity: "73%", visibility: "10 km", uv_index: 8 },
+    ocean: { wave_height: "0.5 m", tide: "Low", water_quality: "Excellent", wave_period: "9 s", current_speed: "0.2 m/s", sea_temperature: "29°C" },
+    services: { hospital: "1.4 km", police_station: "1.0 km", lifeguard: "On beach", parking: "0.4 km" },
+    description: "Island beach with clear water and strong visitor appeal.",
+    review_summary: "Excellent-looking water conditions with good visibility.",
+  },
+  {
+    id: "demo-promenade-beach",
+    name: "Promenade Beach",
+    state: "Puducherry",
+    district: "Puducherry",
+    location: "White Town, Puducherry",
+    rating: 4.2,
+    review_count: 477,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "safe",
+    current_risk_score: 0.23,
+    weather: { temperature: 29, condition: "Clear", wind_speed: "13 km/h", humidity: "71%", visibility: "9 km", uv_index: 7 },
+    ocean: { wave_height: "0.7 m", tide: "Low", water_quality: "Good", wave_period: "8 s", current_speed: "0.3 m/s", sea_temperature: "28°C" },
+    services: { hospital: "1.6 km", police_station: "0.9 km", lifeguard: "On beach", parking: "0.3 km" },
+    description: "Puducherry waterfront with easy public access.",
+    review_summary: "Convenient waterfront with good nearby services.",
+  },
+  {
+    id: "demo-devka-beach",
+    name: "Devka Beach",
+    state: "Daman & Diu",
+    district: "Daman",
+    location: "Devka, Daman",
+    rating: 4.0,
+    review_count: 298,
+    has_lifeguard: true,
+    public_access: true,
+    current_verdict: "caution",
+    current_risk_score: 0.36,
+    weather: { temperature: 30, condition: "Clear", wind_speed: "16 km/h", humidity: "68%", visibility: "9 km", uv_index: 8 },
+    ocean: { wave_height: "0.9 m", tide: "Rising", water_quality: "Fair", wave_period: "7 s", current_speed: "0.5 m/s", sea_temperature: "27°C" },
+    services: { hospital: "2.2 km", police_station: "1.4 km", lifeguard: "On beach", parking: "0.6 km" },
+    description: "Daman waterfront destination with public access.",
+    review_summary: "Good for a coastal visit; observe posted water-safety guidance.",
+  },
+];
+
+export const HARD_CODED_STATES = [...new Set(HARD_CODED_BEACHES.map((beach) => beach.state))];
+
+export function findHardcodedBeach(beachId) {
+  return HARD_CODED_BEACHES.find((beach) => String(beach.id) === String(beachId));
+}
+
+export function findHardcodedBeachByState(state) {
+  if (!state) return HARD_CODED_BEACHES[0];
+  const normalized = String(state).trim().toLowerCase();
+  return HARD_CODED_BEACHES.find((beach) => {
+    const candidate = beach.state.toLowerCase();
+    return candidate === normalized ||
+      (candidate === "kerala" && normalized === "kerela") ||
+      (candidate === "daman & diu" && normalized === "daman and diu");
+  });
+}
+
+export function getHardcodedBeaches({ state = "", activity = "" } = {}) {
+  let items = HARD_CODED_BEACHES;
+
+  if (state) {
+    const match = findHardcodedBeachByState(state);
+    items = match ? [match] : [];
+  }
+
+  // The mock catalogue is intentionally activity-neutral. The backend API
+  // remains the source of truth when VITE_USE_BEACH_API=true.
+  void activity;
+
+  return items;
+}

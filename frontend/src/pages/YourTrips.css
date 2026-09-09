@@ -1,0 +1,348 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Inter:wght@400&display=swap");
+
+/* ── PAGE ── */
+.your-trips-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  background: #F2F2F2;
+}
+
+/* ── BREADCRUMB ── */
+.your-trips-page .breadcrumb {
+  position: absolute;
+  left: 7px;
+  top: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: max-content;
+  min-width: 0;
+  height: 30px;
+  box-sizing: border-box;
+
+  padding: 0 25px;
+
+  white-space: nowrap;
+
+  background: #FFFFFF;
+  border-radius: 18px;
+
+  box-shadow:
+    0 2px 3px rgba(0, 0, 0, 0.22),
+    0 1px 1px rgba(0, 0, 0, 0.08);
+
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  z-index: 10;
+}
+
+.your-trips-page .breadcrumb .home,
+.your-trips-page .breadcrumb .current,
+.your-trips-page .breadcrumb .separator {
+  color: #2F7186;
+  text-decoration: none;
+}
+
+.your-trips-page .breadcrumb .separator {
+  margin: 0 6px;
+}
+
+/* ── HEADING ── */
+.your-trips-page h1 {
+  position: absolute;
+  left: clamp(30px, 4.6vw, 66px);
+  top: clamp(48px, 6.1vh, 62px);
+  margin: 0;
+  color: #015260;
+  font-family: "Inria Serif", serif;
+  font-size: clamp(34px, 3.45vw, 50px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* ── CARD ── */
+.trips-card {
+  position: absolute;
+  left: 4.6vw;
+  top: clamp(130px, 15vh, 153px);
+  width: 90.8vw;
+  max-width: 1307px;
+  min-height: 245px;
+  height: min(318px, 42vh);
+  background: #FFFFFF;
+  box-shadow:
+    0 4px 4px rgba(0, 0, 0, 0.25),
+    0 4px 4px rgba(0, 0, 0, 0.25) inset;
+  border-radius: clamp(25px, 3.5vw, 50px);
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* ── EMPTY STATE ── */
+.trip-icon {
+  width: 50px;
+  height: 50px;
+  display: block;
+  flex: 0 0 auto;
+  background: transparent;
+}
+
+.no-trips {
+  color: #000;
+  font-family: "Inria Serif", serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.trips-card>button {
+  width: 203px;
+  height: 50px;
+  border: 0;
+  border-radius: 30px;
+  background: #0D7385;
+  color: #FFFFFF;
+  font-family: "Inria Serif", serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.trips-card>button:hover {
+  background: #015260;
+}
+
+/* ── HAS TRIPS: override to auto height + normal flow ── */
+.trips-card.has-trips {
+  height: auto;
+  min-height: 245px;
+  justify-content: flex-start;
+  padding: 40px 55px 36px;
+  gap: 0;
+}
+
+/* ── TRIP LIST ── */
+.trip-list {
+  width: 100%;
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.trip-list-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 22px;
+  background: #F2F2F2;
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 120ms ease;
+}
+
+.trip-list-item:hover {
+  box-shadow: 0 0 0 1px rgba(13, 115, 133, 0.22);
+}
+
+.trip-list-item:focus-visible {
+  box-shadow: 0 0 0 3px rgba(13, 115, 133, 0.28);
+}
+
+.trip-list-item.is-selected {
+  box-shadow: 0 0 0 2px rgba(13, 115, 133, 0.55);
+}
+
+.trip-list-item.is-created {
+  box-shadow: 0 0 0 2px rgba(13, 115, 133, 0.35);
+}
+
+/* ── CANCELLED: muted / faded ── */
+.trip-list-item.is-cancelled {
+  opacity: 0.45;
+  background: #E8E8E8;
+  pointer-events: none;
+}
+
+/* ── TRIP CONTENT ── */
+.trip-list-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Beach name — clickable link behaviour */
+.trip-list-title {
+  color: #015260;
+  font-family: "Inria Serif", serif;
+  font-size: clamp(19px, 1.8vw, 26px);
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.trip-list-title:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.trip-list-title:focus-visible {
+  outline: 2px solid rgba(13, 115, 133, 0.55);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* activity type — own line, slightly muted */
+.trip-list-activity {
+  color: #0D7385;
+  font-family: Inter, sans-serif;
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+/* date range — own line */
+.trip-list-dates {
+  color: #444;
+  font-family: Inter, sans-serif;
+  font-size: clamp(12px, 1vw, 14px);
+}
+
+/* booked on — own line, lightest */
+.trip-list-booked {
+  color: #888;
+  font-family: Inter, sans-serif;
+  font-size: clamp(11px, 0.9vw, 13px);
+}
+
+/* ── ACTIONS ── */
+.trip-list-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.trip-status {
+  padding: 6px 14px;
+  border-radius: 18px;
+  background: rgba(13, 115, 133, 0.12);
+  color: #0D7385;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.trip-status.cancelled {
+  background: rgba(0, 0, 0, 0.07);
+  color: #888;
+}
+
+/* Cancel button */
+.trip-action.cancel {
+  border: 0;
+  border-radius: 20px;
+  padding: 8px 16px;
+  background: rgba(190, 15, 32, 0.12);
+  color: #BE0F20;
+  font-family: "Inria Serif", serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 140ms ease;
+  white-space: nowrap;
+}
+
+.trip-action.cancel:hover {
+  background: rgba(190, 15, 32, 0.22);
+}
+
+.trip-action.cancel:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── CREATE ANOTHER ── */
+.create-another {
+  display: block;
+  margin: 4px auto 0;
+  width: min(255px, 100%) !important;
+  position: static !important;
+  transform: none !important;
+}
+
+/* ── ERROR ── */
+.message.error {
+  margin: 0 0 12px;
+  color: #EA4335;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+}
+
+/* ── TABLET ── */
+@media (max-height: 720px) and (min-width: 601px) {
+  .your-trips-page h1 {
+    top: 48px;
+  }
+
+  .trips-card {
+    top: 125px;
+  }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .your-trips-page .breadcrumb {
+    left: 7px;
+    top: 0;
+    height: 30px;
+    padding: 0 18px;
+    font-size: 13px;
+  }
+
+  .your-trips-page .breadcrumb .separator {
+    margin: 0 5px;
+  }
+
+  .your-trips-page h1 {
+    left: 20px;
+    top: 55px;
+    font-size: 38px;
+  }
+
+  .trips-card {
+    left: 12px;
+    top: 125px;
+    width: calc(100vw - 24px);
+    border-radius: 30px;
+  }
+
+  .trips-card.has-trips {
+    padding: 28px 18px 28px;
+  }
+
+  .trip-list-item {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-list-actions {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
