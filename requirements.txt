@@ -1,0 +1,46 @@
+# --- Web framework ---
+fastapi>=0.110
+uvicorn[standard]>=0.29
+
+# --- Database (confirmed via Module 2 + 3/4 requirements files) ---
+SQLAlchemy>=2.0
+GeoAlchemy2>=0.14
+psycopg2-binary>=2.9.10
+alembic>=1.13          # optional upgrade path
+
+# --- Validation / settings ---
+pydantic>=2.6
+pydantic-settings>=2.2
+python-dotenv>=1.0
+
+# --- Background jobs (confirmed: celery_app.py, workers/*) ---
+celery>=5.3
+redis>=5.0
+
+# --- HTTP clients (confirmed via imports) ---
+httpx>=0.27
+requests>=2.31
+
+# --- Auth / security ---
+passlib[bcrypt]>=1.7
+bcrypt==4.0.1
+python-jose[cryptography]>=3.3
+python-multipart>=0.0.9
+
+# --- Notifications (confirmed via imports) ---
+pywebpush>=1.14
+
+# --- Storage (confirmed via imports; only needed if RAW_STORAGE_BACKEND=s3) ---
+boto3>=1.34
+
+# --- Ops (confirmed via imports) ---
+prometheus_client>=0.20
+
+# --- Testing (confirmed via imports + pytest.ini) ---
+pytest>=8.0
+pytest-asyncio>=0.23
+
+slowapi>=0.1.9
+
+# --- ORCA: Agentic AI layer (agents/*.py) ---
+groq>=0.11
