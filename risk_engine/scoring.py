@@ -59,10 +59,12 @@ class ScoreExplanation:
     coverage_term: float = 0.0
     hard_override: bool = False
     hard_override_reason: Optional[str] = None
-    raw_score_pre_sigmoid: float = 0.0
+    raw_score_pre_sigmoid: float | None = 0.0
 
     def to_dict(self) -> dict:
         return {
+            "score_kind": "uncalibrated_heuristic",
+            "validated_for_operational_use": False,
             "z_scores": self.z_scores, "weighted_terms": self.weighted_terms,
             "interaction_terms": self.interaction_terms, "trend_term": self.trend_term,
             "tide_term": self.tide_term, "coverage_term": self.coverage_term,
@@ -105,7 +107,7 @@ def compute_risk(
     if override_type:
         expl.hard_override = True
         expl.hard_override_reason = override_type
-        expl.raw_score_pre_sigmoid = float("inf")
+        expl.raw_score_pre_sigmoid = None  # Formula bypassed; JSON cannot represent infinity.
         return 1.0, "unsafe", expl
 
     w = weights or DEFAULT_WEIGHTS
