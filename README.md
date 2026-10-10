@@ -1,4 +1,8 @@
-# 🌊 Wave-Safe
+# Orca — coastal analytics and agent extension
+This is a team prototype. The risk formulas use hand-chosen weights and are not calibrated against labelled incident outcomes. SOS and dispatch flows demonstrate application workflows; this repository does not establish an operational rescue-service integration.
+
+WaveSafe and Orca share a substantial code family. Orca adds analytics and agent modules; count the family once when describing portfolio breadth. Individual contributions must be supported by commits and the team’s own account of responsibilities.
+
 
 > **A Unified Platform for Smarter Coastal Travel and Safety**
 
@@ -502,3 +506,5 @@ Wave-Safe aims to turn fragmented coastal safety, travel, ocean, weather, and em
 - Arvind Kumar
 - Om Kushwaha
 - Rishabh Pal
+
+Audit repair scope, reproducible checks and remaining limitations: [AUDIT_FIXES.md](AUDIT_FIXES.md).
